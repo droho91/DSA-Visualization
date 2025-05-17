@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    height: 100vh;
+    position: relative;
+    background-color: #f9f9f9; 
+  }
+  
+  .array-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: flex-end; 
+  }
+  
+  .array-bar {
+    width: 2px;
+    background-color: pink;
+    margin: 0 1px;
+  }
+  
