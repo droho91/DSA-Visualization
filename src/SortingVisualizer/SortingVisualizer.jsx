@@ -11,8 +11,8 @@ import {
   getQuickSortAnimation,
 } from '../sortingAlgorithms/sortingAlgorithms';
 
-const ANIMATION_SPEED_MS = 10;
-const NUMBER_OF_ARRAY_BARS = 10;
+const ANIMATION_SPEED_MS = 1;
+const NUMBER_OF_ARRAY_BARS = 100;
 const PRIMARY_COLOR = 'turquoise';
 const SECONDARY_COLOR = 'red';
 
@@ -40,15 +40,19 @@ export class SortingVisualizer extends React.Component {
   const arrayBars = document.getElementsByClassName('array-bar');
   for (let i = 0; i < animations.length; i++) {
     const isColorChange = i % 3 !== 2;
+
+    if (!Array.isArray(animations[i])) continue;
+
     if (isColorChange) {
       const [barOneIdx, barTwoIdx] = animations[i];
       if (
-        barOneIdx === -1 || barTwoIdx === -1 ||
+        barOneIdx < 0 || barTwoIdx < 0 ||
         !arrayBars[barOneIdx] || !arrayBars[barTwoIdx]
       ) continue;
+
       const barOneStyle = arrayBars[barOneIdx].style;
       const barTwoStyle = arrayBars[barTwoIdx].style;
-      const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+      const color = i % 3 === 0 ? 'red' : 'turquoise';
       setTimeout(() => {
         barOneStyle.backgroundColor = color;
         barTwoStyle.backgroundColor = color;
@@ -56,7 +60,14 @@ export class SortingVisualizer extends React.Component {
     } else {
       setTimeout(() => {
         const [barIdx, newHeight] = animations[i];
-        if (barIdx === -1 || !arrayBars[barIdx]) return;
+        if (
+          barIdx < 0 ||
+          !arrayBars[barIdx] ||
+          typeof newHeight !== 'number' ||
+          isNaN(newHeight) ||
+          newHeight < 1
+        ) return;
+
         const barStyle = arrayBars[barIdx].style;
         barStyle.height = `${newHeight}px`;
       }, i * ANIMATION_SPEED_MS);
@@ -65,20 +76,21 @@ export class SortingVisualizer extends React.Component {
 }
 
 
+
   mergeSort() {
     const animations = getMergeSortAnimation(this.state.array);
     this.runAnimations(animations);
   }
 
-  bubbleSort() {
+ /* bubbleSort() {
     const animations = getBubbleSortAnimation(this.state.array);
     this.runAnimations(animations);
-  }
+  }*/
 
-  selectionSort() {
+ /* selectionSort() {
     const animations = getSelectionSortAnimation(this.state.array);
     this.runAnimations(animations);
-  }
+  }*/
 
   insertionSort() {
     const animations = getInsertionSortAnimation(this.state.array);
@@ -90,10 +102,11 @@ export class SortingVisualizer extends React.Component {
     this.runAnimations(animations);
   }
 
-  quickSort() {
+ /* quickSort() {
     const animations = getQuickSortAnimation(this.state.array);
     this.runAnimations(animations);
-  }
+  }*/
+
 
   render() {
     const { array } = this.state;
