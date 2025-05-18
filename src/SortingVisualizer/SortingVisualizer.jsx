@@ -1,4 +1,3 @@
-// SortingVisualizer.jsx (đã cập nhật thêm các thuật toán)
 
 import React from 'react';
 import './SortingVisualizer.css';
@@ -9,8 +8,7 @@ import {
   getInsertionSortAnimation,
   getShellSortAnimation,
   getQuickSortAnimation,
-} from '../sortingAlgorithms/sortingAlgorithms';
-
+} from '../sortingAlgorithms'
 const ANIMATION_SPEED_MS = 1;
 const NUMBER_OF_ARRAY_BARS = 100;
 const PRIMARY_COLOR = 'turquoise';
@@ -82,15 +80,15 @@ export class SortingVisualizer extends React.Component {
     this.runAnimations(animations);
   }
 
- /* bubbleSort() {
+  bubbleSort() {
     const animations = getBubbleSortAnimation(this.state.array);
     this.runAnimations(animations);
-  }*/
+  }
 
- /* selectionSort() {
+  selectionSort() {
     const animations = getSelectionSortAnimation(this.state.array);
     this.runAnimations(animations);
-  }*/
+  }
 
   insertionSort() {
     const animations = getInsertionSortAnimation(this.state.array);
@@ -102,10 +100,10 @@ export class SortingVisualizer extends React.Component {
     this.runAnimations(animations);
   }
 
- /* quickSort() {
+  quickSort() {
     const animations = getQuickSortAnimation(this.state.array);
     this.runAnimations(animations);
-  }*/
+  }
 
 
   render() {
