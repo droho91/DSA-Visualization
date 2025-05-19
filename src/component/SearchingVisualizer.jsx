@@ -76,41 +76,53 @@ export default function SearchingVisualizer() {
    return (
     <div className="searching-container">
       <h2>Searching Visualizer</h2>
-      <div className="searching-controls">
-        <label>
-          Array:&nbsp;
-          <input
-            type="text"
-            value={array.join(',')}
-            onChange={handleArrayChange}
-            disabled={isSearching}
-            style={{ width: 180 }}
-          />
-        </label>
-        &nbsp;&nbsp;
-        <label>
-          Search Value:&nbsp;
-          <input
-            type="number"
-            value={searchValue}
-            onChange={handleSearchValueChange}
-            disabled={isSearching}
-            style={{ width: 60 }}
-          />
-        </label>
-        &nbsp;&nbsp;
-        <label>
-          Algorithm:&nbsp;
-          <select value={algorithm} onChange={handleAlgorithmChange} disabled={isSearching}>
-            <option value="linear">Linear Search</option>
-            <option value="binary">Binary Search</option>
-          </select>
-        </label>
-        &nbsp;&nbsp;
-        <button onClick={startSearch} disabled={isSearching || !searchValue}>
-          Start Search
-        </button>
-      </div>
+     <div className="searching-controls">
+  <label>
+    Array:&nbsp;
+    <input
+      type="text"
+      value={array.join(',')}
+      onChange={handleArrayChange}
+      disabled={isSearching}
+      style={{ width: 180 }}
+    />
+    <button
+      type="button"
+      onClick={() => { setArray([...array, 0]); reset(); }}
+      disabled={isSearching}
+      style={{ marginLeft: 8 }}
+    >+</button>
+    <button
+      type="button"
+      onClick={() => { if(array.length > 1) { setArray(array.slice(0, -1)); reset(); } }}
+      disabled={isSearching || array.length <= 1}
+      style={{ marginLeft: 4 }}
+    >-</button>
+  </label>
+  &nbsp;&nbsp;
+  <label>
+    Search Value:&nbsp;
+    <input
+      type="number"
+      value={searchValue}
+      onChange={handleSearchValueChange}
+      disabled={isSearching}
+      style={{ width: 60 }}
+    />
+  </label>
+  &nbsp;&nbsp;
+  <label>
+    Algorithm:&nbsp;
+    <select value={algorithm} onChange={handleAlgorithmChange} disabled={isSearching}>
+      <option value="linear">Linear Search</option>
+      <option value="binary">Binary Search</option>
+    </select>
+  </label>
+  &nbsp;&nbsp;
+  <button onClick={startSearch} disabled={isSearching || !searchValue}>
+    Start Search
+  </button>
+</div>
       <div className="searching-array">
         {array.map((num, idx) => (
           <div

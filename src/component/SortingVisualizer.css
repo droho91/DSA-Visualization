@@ -1,7 +1,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+  background: transparent !important; /* Sửa lại để không che nền galaxy */
   font-family: 'Segoe UI', Arial, sans-serif;
 }
 
@@ -11,7 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #f8fafc;
+  background: transparent !important; /* Sửa lại để không che nền galaxy */
 }
 
 .visualizer-bars {
@@ -19,10 +19,11 @@ body {
   align-items: flex-end;
   height: 70vh;
   margin-bottom: 40px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.7);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  border-radius: 16px;
+  background: #fff0f09d; 
+  box-shadow: 0 4px 24px rgba(255, 255, 255, 0.507);
   padding: 20px 10px;
+  transition: background 0.2s;
 }
 
 .array-bar {
@@ -68,4 +69,44 @@ button:active {
     padding: 8px 10px;
     font-size: 0.9rem;
   }
+}
+
+/* Thay thế hoặc thêm vào file Home.css và SortingVisualizer.css */
+
+/* Button chung */
+button,
+.slide-btn {
+  background: linear-gradient(90deg, #a084ff 0%, #8f5cff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 24px #8f5cff44, 0 2px 8px #0004;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  outline: none;
+}
+
+button:hover,
+.slide-btn:hover {
+  background: linear-gradient(90deg, #ffb6ff 0%, #a084ff 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 8px 32px #ffb6ff55, 0 2px 8px #0006;
+}
+
+button:active,
+.slide-btn:active {
+  background: linear-gradient(90deg, #8f5cff 0%, #a084ff 100%);
+  color: #fff;
+  transform: scale(0.98);
+}
+
+/* Nếu muốn nút Home nhỏ hơn, thêm riêng: */
+.tab-bar button {
+  padding: 8px 22px;
+  font-size: 1rem;
+  border-radius: 8px;
 }

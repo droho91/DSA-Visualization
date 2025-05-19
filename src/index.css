@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+html, body {
+  min-height: 100vh;
+  margin: 0;
+  background: radial-gradient(ellipse at 70% 20%, #2d1b4c 0%, #0a0520 100%) !important;
+  color: #e0e7ff;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  overflow-x: hidden;
+}

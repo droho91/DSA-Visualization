@@ -1,0 +1,152 @@
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;    
+  align-items: center;
+  position: relative;
+  padding-top: 7vh;            
+}
+
+.home-title {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 4px 32px #8f5cff, 0 2px 8px #000;
+  margin-bottom: 8px;      /* Giảm khoảng cách với subtitle */
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.home-subtitle {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #ffe6ff;
+  text-shadow: 0 2px 8px #8f5cff88, 0 1px 4px #000a;
+  margin-bottom: 32px;
+  margin-top: 0;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.slide-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.slide-card {
+  width: 420px;
+  height: 420px;
+  background: rgba(40,20,60,0.7);
+  border-radius: 32px;
+  box-shadow: 0 8px 40px 0 #8f5cff55, 0 2px 8px #0008;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 40px;
+  transition: transform 0.2s;
+}
+
+.slide-card:hover {
+  transform: scale(1.04) translateY(-8px);
+  box-shadow: 0 12px 48px 0 #8f5cff99, 0 2px 8px #000a;
+}
+
+.slide-card img {
+  width: 340px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 24px #0006;
+}
+
+.card-label {
+  font-size: 2rem;
+  color: #ffb6ff;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 0 2px 8px #000a;
+  margin-top: 8px;
+}
+
+.slide-btn {
+  font-size: 2.5rem;
+  background: #8f5cff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #8f5cff55;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.slide-btn:hover {
+  background: #a084ff;
+  transform: scale(1.08);
+}
+
+.slide-dots {
+  margin: 18px 0 0 0;
+  text-align: center;
+}
+
+.dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background: #fff4;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #ffb6ff;
+}
+
+/* Thay thế hoặc thêm vào file Home.css và SortingVisualizer.css */
+
+/* Button chung */
+button,
+.slide-btn {
+  background: linear-gradient(90deg, #a084ff 0%, #8f5cff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 24px #8f5cff44, 0 2px 8px #0004;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  outline: none;
+}
+
+button:hover,
+.slide-btn:hover {
+  background: linear-gradient(90deg, #ffb6ff 0%, #a084ff 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 8px 32px #ffb6ff55, 0 2px 8px #0006;
+}
+
+button:active,
+.slide-btn:active {
+  background: linear-gradient(90deg, #8f5cff 0%, #a084ff 100%);
+  color: #fff;
+  transform: scale(0.98);
+}
+
+/* Nếu muốn nút Home nhỏ hơn, thêm riêng: */
+.tab-bar button {
+  padding: 8px 22px;
+  font-size: 1rem;
+  border-radius: 8px;
+}

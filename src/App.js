@@ -1,36 +1,39 @@
 import React, { useState } from 'react';
+
+import Home from './component/Home';
 import  SortingVisualizer from './component/SortingVisualizer';
 import SearchingVisualizer from './component/SearchingVisualizer';
+import StackQueueVisualizer from './component/StackQueueVisualizer';
 /*import GraphVisualizer from './GraphVisualizer/GraphVisualizer';
-import StackQueueVisualizer from './StackQueueVisualizer/StackQueueVisualizer';
 import LinkedListVisualizer from './LinkedListVisualizer/LinkedListVisualizer';*/
 
 const TABS = [
-  { label: 'Sorting', component: <SortingVisualizer /> },
-  { label: 'Searching', component: <SearchingVisualizer /> },
+  {label: 'Home', component: Home },
+  { label: 'Sorting', component: SortingVisualizer  },
+  { label: 'Searching', component: SearchingVisualizer  },
+  { label: 'Stack & Queue', component: StackQueueVisualizer },
   /*{ label: 'Graph (BFS/DFS)', component: <GraphVisualizer /> },
-  { label: 'Stack & Queue', component: <StackQueueVisualizer /> },
   { label: 'Linked List', component: <LinkedListVisualizer /> },*/
 ];
 
 export default function App() {
   const [activeTab, setActiveTab] = useState(0);
 
-  return (
+ return (
     <div>
       <div className="tab-bar">
-        {TABS.map((tab, idx) => (
-          <button
-            key={tab.label}
-            className={activeTab === idx ? 'active' : ''}
-            onClick={() => setActiveTab(idx)}
-          >
-            {tab.label}
-          </button>
-        ))}
+        <button
+          className={activeTab === 0 ? 'active' : ''}
+          onClick={() => setActiveTab(0)}
+        >
+          Home
+        </button>
       </div>
       <div className="tab-content">
-        {TABS[activeTab].component}
+        {activeTab === 0
+          ? <Home setActiveTab={setActiveTab} />
+          : React.createElement(TABS[activeTab].component)
+        }
       </div>
     </div>
   );

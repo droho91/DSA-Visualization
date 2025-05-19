@@ -29,6 +29,47 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+ <canvas id="starfield" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:999;pointer-events:none"></canvas>
+<script>
+const canvas = document.getElementById('starfield');
+const ctx = canvas.getContext('2d');
+let w = window.innerWidth, h = window.innerHeight;
+canvas.width = w; canvas.height = h;
+
+let stars = Array.from({length: 600}, () => ({
+  x: Math.random()*w,
+  y: Math.random()*h,
+  r: Math.random()*1.8+0.6, // tăng kích thước sao
+  o: Math.random()*0.7+0.3, // tăng độ sáng tối thiểu
+  tw: Math.random()*2*Math.PI
+}));
+
+function drawStars() {
+  ctx.clearRect(0,0,w,h);
+  for (const s of stars) {
+    let blink = 0.7 + 0.5 * Math.sin(Date.now()/350 + s.tw); // lấp lánh mạnh hơn
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, 2*Math.PI);
+    ctx.fillStyle = `rgba(255,255,255,${s.o * blink})`;
+    ctx.shadowColor = "#fff";
+    ctx.shadowBlur = 28; // tăng shadow cho sáng rõ
+    ctx.fill();
+  }
+}
+function animate() {
+  for (const s of stars) {
+    s.x += 0.015; if (s.x > w) s.x = 0;
+  }
+  drawStars();
+  requestAnimationFrame(animate);
+}
+window.addEventListener('resize', () => {
+  w = window.innerWidth; h = window.innerHeight;
+  canvas.width = w; canvas.height = h;
+});
+animate();
+</script>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -41,3 +82,4 @@
     -->
   </body>
 </html>
+

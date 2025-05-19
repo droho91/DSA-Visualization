@@ -14,7 +14,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,6 +21,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  background: transparent;
 }
 
 .App-link {
@@ -35,4 +35,111 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.slide-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 30px;
+}
+
+.slide-card {
+  width: 260px;
+  height: 340px;
+  background: linear-gradient(135deg, #3b0764 60%, #1e293b 100%);
+  border-radius: 18px;
+  box-shadow: 0 0 24px 4px #7c3aed55, 0 2px 16px #000a;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: box-shadow 0.3s, background 0.3s, transform 0.2s;
+}
+
+.slide-card:hover {
+  background: linear-gradient(135deg, #a21caf 60%, #312e81 100%);
+  box-shadow: 0 0 32px 8px #a21caf99, 0 2px 24px #000c;
+  transform: scale(1.04) rotateY(6deg);
+}
+
+.card-label {
+  width: 100%;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #f472b6;
+  background: rgba(24, 16, 64, 0.85);
+  padding: 16px 0 10px 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 0 0 18px 18px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #000a;
+}
+
+.slide-card img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+}
+
+.slide-btn {
+  font-size: 2rem;
+  background: linear-gradient(90deg, #7c3aed 0%, #2563eb 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px #7c3aed44;
+}
+
+.slide-btn:hover {
+  background: linear-gradient(90deg, #a21caf 0%, #2563eb 100%);
+  box-shadow: 0 4px 24px #a21caf55;
+  transform: scale(1.07);
+}
+
+.slide-dots {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.dot {
+  background: #7c3aed;
+  box-shadow: 0 0 8px #a21caf88;
+}
+.dot.active {
+  background: #f472b6;
+  box-shadow: 0 0 12px #f472b6bb;
+}
+
+html, body {
+  min-height: 100vh;
+  margin: 0;
+  background: radial-gradient(ellipse at 70% 20%, #2d1b4c 0%, #0a0520 100%) !important;
+  color: #e0e7ff;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.App, .App-header, .home-container {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.array-container,
+.searching-container,
+.visualizer-bars {
+  background: transparent !important;
+  box-shadow: none !important;
 }
