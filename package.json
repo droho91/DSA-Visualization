@@ -1,5 +1,6 @@
 {
   "name": "visualization",
+  "homepage": "https://droho91.github.io/DSA-Visualization",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
