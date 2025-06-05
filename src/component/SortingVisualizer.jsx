@@ -47,7 +47,6 @@ export class SortingVisualizer extends React.Component {
  handleBarColorChange = (e) => {
   this.setState({ barColor: e.target.value }, () => {
     this.resetBarColors();
-    // Also update any bars that are currently red (from animation)
     const arrayBars = document.getElementsByClassName('array-bar');
     for (let i = 0; i < arrayBars.length; i++) {
       if (arrayBars[i].style.backgroundColor === 'red' || arrayBars[i].style.backgroundColor === 'rgb(255, 0, 0)') {

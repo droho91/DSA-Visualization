@@ -71,9 +71,6 @@ button:active {
   }
 }
 
-/* Thay thế hoặc thêm vào file Home.css và SortingVisualizer.css */
-
-/* Button chung */
 button,
 .slide-btn {
   background: linear-gradient(90deg, #a084ff 0%, #8f5cff 100%);
@@ -110,3 +107,4 @@ button:active,
   font-size: 1rem;
   border-radius: 8px;
 }
+

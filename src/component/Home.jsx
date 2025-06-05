@@ -5,6 +5,7 @@ const cards = [
   { imgSrc: process.env.PUBLIC_URL + '/images/Sorting.jpg', title: 'Sorting', tab: 1 },
   { imgSrc: process.env.PUBLIC_URL + '/images/Searching.jpg', title: 'Searching', tab: 2 },
 { imgSrc: process.env.PUBLIC_URL + '/images/S&Q.jpg', title: 'Stack and Queue', tab: 3  },
+{ imgSrc: process.env.PUBLIC_URL + '/images/BinaryTree.png', title: 'Binary Tree', tab: 4 },
 ];
 
 export default function Home({ setActiveTab }) {

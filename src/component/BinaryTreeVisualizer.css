@@ -1,0 +1,141 @@
+.tree-visualization {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  margin: 0 auto;
+}
+
+svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.tree-level {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin: 20px 0;
+}
+
+.tree-children {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  gap: 40px;
+}
+
+.tree-node {
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 50%;
+  padding: 14px 20px;
+  font-weight: bold;
+  font-size: 18px;
+  border: 2px solid #2563eb;
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s;
+}
+
+/* Highlight animation */
+.tree-node.highlight {
+  background-color: #f59e42 !important;
+}
+
+/* Empty placeholder */
+.tree-node.empty {
+  visibility: hidden;
+  width: 40px;
+  height: 40px;
+}
+
+
+.tree-level::after {
+  content: '';
+  position: absolute;
+  top: 34px; 
+  left: 50%;
+  width: 0;
+  height: 20px;
+  border-left: 2px solid #ccc;
+  transform: translateX(-50%);
+}
+
+.tree-children::before,
+.tree-children::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 20px;
+  border-top: 2px solid #ccc;
+}
+
+.tree-children::before {
+  left: 0;
+  border-right: 2px solid #ccc;
+}
+
+.tree-children::after {
+  right: 0;
+  border-left: 2px solid #ccc;
+}
+
+.visualizer-container {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.controls input {
+  padding: 8px;
+  font-size: 1rem;
+  width: 300px;
+  margin-right: 12px;
+}
+
+.traversal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.traversal-buttons button {
+  padding: 8px 16px;
+  background-color: #3b82f6;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.traversal-buttons button:hover {
+  background-color: #2563eb;
+}
+
+.order-display {
+color: #000000;
+  font-size: 1.2rem;
+  padding: 10px;
+  background-color: white;
+  border-radius: 4px;
+  margin-top: 10px;
+  word-break: break-all;
+}
+.traversal-order h3 {
+  color: #ffffff; 
+}
